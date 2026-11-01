@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estação de Conversão Científica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <div class="terminal-title">conversor_unidades.cpp</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="input-panel">
+                <div class="row">
+                    <label>Valor de Entrada:</label>
+                    <input type="number" id="tempInput" placeholder="Ex: 25">
+                </div>
+                
+                <div class="row">
+                    <label>De:</label>
+                    <select id="fromUnit">
+                        <option value="C">Celsius (°C)</option>
+                        <option value="F">Fahrenheit (°F)</option>
+                        <option value="K">Kelvin (K)</option>
+                    </select>
+                </div>
+                
+                <button class="action-btn" onclick="processConversion()">Compilar e Executar</button>
+            </div>
+            
+            <div class="output-panel">
+                <div class="console-box" id="consoleOutput">Aguardando dados de entrada para inicializar...</div>
+                <div class="history-box">
+                    <h5>Log de Operações Recentes:</h5>
+                    <ul id="historyList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function processConversion() {
+            const inputVal = document.getElementById('tempInput').value;
+            const fromUnit = document.getElementById('fromUnit').value;
+            const consoleOutput = document.getElementById('consoleOutput');
+            const historyList = document.getElementById('historyList');
+            
+            if (inputVal === '') {
+                consoleOutput.innerHTML = `<span class="text-error">[ERRO] Falha de segmentação: entrada nula detectada.</span>`;
+                return;
+            }
+            
+            const value = parseFloat(inputVal);
+            let c, f, k;
+            
+            if (fromUnit === 'C') {
+                c = value; f = (c * 9/5) + 32; k = c + 273.15;
+            } else if (fromUnit === 'F') {
+                f = value; c = (f - 32) * 5/9; k = c + 273.15;
+            } else {
+                k = value; c = k - 273.15; f = (c * 9/5) + 32;
+            }
+            
+            const resultText = `Mapeamento concluído com sucesso:\n» ${c.toFixed(2)} °C\n» ${f.toFixed(2)} °F\n» ${k.toFixed(2)} K`;
+            consoleOutput.innerHTML = `<span class="text-success">${resultText}</span>`;
+            
+            const li = document.createElement('li');
+            li.textContent = `${value}°${fromUnit} processado para múltiplas saídas.`;
+            historyList.insertBefore(li, historyList.firstChild);
+        }
+    </script>
+</body>
+</html>

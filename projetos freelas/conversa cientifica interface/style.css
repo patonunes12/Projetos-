@@ -1,0 +1,101 @@
+body {
+    background-color: #0f141c;
+    color: #abb2bf;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+.terminal-container {
+    width: 100%;
+    max-width: 800px;
+    background: #1e222b;
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border: 1px solid #3e4452;
+}
+.terminal-header {
+    background: #21252b;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+.terminal-title {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    font-size: 14px;
+    color: #828997;
+}
+.terminal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 25px;
+}
+.input-panel {
+    background: #282c34;
+    padding: 20px;
+    border-radius: 6px;
+}
+.row {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #98c379;
+}
+input, select {
+    width: 100%;
+    background: #1e222b;
+    border: 1px solid #3e4452;
+    padding: 10px;
+    color: #61afef;
+    border-radius: 4px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+.action-btn {
+    width: 100%;
+    background: #61afef;
+    color: #1e222b;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+}
+.action-btn:hover { background: #4ca3ea; }
+.console-box {
+    background: #000;
+    padding: 15px;
+    border-radius: 6px;
+    min-height: 100px;
+    white-space: pre-line;
+    border: 1px solid #282c34;
+}
+.text-error { color: #e06c75; }
+.text-success { color: #98c379; }
+.history-box {
+    margin-top: 20px;
+}
+.history-box h5 { margin: 0 0 10px 0; color: #e5c07b; }
+.history-box ul { padding-left: 20px; margin: 0; font-size: 13px; color: #5c6370; }

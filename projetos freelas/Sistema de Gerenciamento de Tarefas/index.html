@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Minhas Tarefas</h2>
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Nova tarefa...">
+            <button onclick="addTask()">Adicionar</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        function addTask() {
+            const input = document.getElementById('taskInput');
+            const text = input.value.trim();
+            if (text === '') return;
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${text}</span><button class="btn-delete" onclick="this.parentElement.remove()">X</button>`;
+            document.getElementById('taskList').appendChild(li);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Shortcodes WordPress</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wp-admin-panel">
+        <header class="wp-header">
+            <h1>Configurador de Mensagens e Alertas</h1>
+            <p>Simule a renderização do Shortcode PHP do WordPress</p>
+        </header>
+        
+        <main class="wp-content">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="alertTitle">Título do Alerta</label>
+                    <input type="text" id="alertTitle" value="Aviso Importante!">
+                </div>
+
+                <div class="form-group">
+                    <label for="alertType">Tipo de Bloco (Atributo)</label>
+                    <select id="alertType">
+                        <option value="info">Informativo (Azul)</option>
+                        <option value="success">Sucesso (Verde)</option>
+                        <option value="warning">Aviso (Amarelo)</option>
+                        <option value="danger">Perigo (Vermelho)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="alertMessage">Conteúdo da Mensagem</label>
+                    <textarea id="alertMessage" rows="4">Seu site WordPress foi atualizado com sucesso para a versão mais recente.</textarea>
+                </div>
+                
+                <button class="wp-btn" onclick="generateWPAlert()">Executar Shortcode</button>
+            </div>
+            
+            <div class="preview-container">
+                <h3>Visualização no Front-End</h3>
+                <div id="wpPreviewArea"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function generateWPAlert() {
+            const title = document.getElementById('alertTitle').value;
+            const type = document.getElementById('alertType').value;
+            const message = document.getElementById('alertMessage').value;
+            const previewArea = document.getElementById('wpPreviewArea');
+            
+            const alertElement = document.createElement('div');
+            alertElement.className = `wp-box wp-box-${type}`;
+            
+            alertElement.innerHTML = `
+                <div class="wp-box-content">
+                    <h4>${title}</h4>
+                    <p>${message}</p>
+                </div>
+                <button class="wp-box-close" onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            previewArea.appendChild(alertElement);
+        }
+    </script>
+</body>
+</html>

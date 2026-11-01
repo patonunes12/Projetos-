@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Acesso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="myForm" onsubmit="return validateForm(event)">
+        <h2>Criar Conta</h2>
+        <div class="field">
+            <input type="text" id="email" placeholder="Seu melhor e-mail">
+            <div id="emailError" class="error">Por favor, insira um e-mail válido.</div>
+        </div>
+        <div class="field">
+            <input type="password" id="password" placeholder="Senha (mínimo 6 caracteres)">
+            <div id="passwordError" class="error">A senha deve ter pelo menos 6 caracteres.</div>
+        </div>
+        <button type="submit">Registrar</button>
+    </form>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            let valid = true;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (!email.includes('@') || !email.includes('.')) {
+                document.getElementById('emailError').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('emailError').style.display = 'none';
+            }
+            if (password.length < 6) {
+                document.getElementById('passwordError').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('passwordError').style.display = 'none';
+            }
+            if (valid) {
+                alert('Formulário validado com sucesso!');
+            }
+            return valid;
+        }
+    </script>
+</body>
+</html>
