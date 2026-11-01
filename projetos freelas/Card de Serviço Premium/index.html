@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card de Serviços Premium</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="toggle-container">
+            <button id="btn-mensal" class="toggle-btn active">Mensal</button>
+            <button id="btn-anual" class="toggle-btn">Anual (Economize 20%)</button>
+        </div>
+
+        <div class="pricing-card">
+            <div class="card-header">
+                <span class="badge">Mais Vendido</span>
+                <h3>Mentoria VIP</h3>
+                <p>Acelere sua evolução com acompanhamento individual.</p>
+            </div>
+
+            <div class="card-price">
+                <span class="currency">R$</span>
+                <span id="price" class="price-value">199</span>
+                <span id="period" class="price-period">/mês</span>
+            </div>
+
+            <div class="scarcity-alert">
+                <p>Apenas <strong id="slots-count">5</strong> vagas restantes para esta semana!</p>
+            </div>
+
+            <ul class="features-list">
+                <li>Encontros semanais ao vivo</li>
+                <li>Suporte direto pelo WhatsApp</li>
+                <li>Acesso a materiais exclusivos</li>
+                <li>Análise de desempenho mensal</li>
+                <li>Acesso à comunidade privada</li>
+            </ul>
+
+            <button class="card-btn">Quero Iniciar</button>
+
+            <div class="card-footer-info">
+                <p>Garantia de 7 dias ou seu dinheiro de volta</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.links-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.profile h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.profile p {
+    font-size: 14px;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+}
+
+.links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.link-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.link-item:hover {
+    background-color: #ffffff;
+    color: #1f1c2c;
+    transform: scale(1.02);
+}
+
+.faq-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #e0e0e0;
+}
+
+.faq-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+}
+
+.faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 18px;
+}
+
+.faq-item.active .faq-question::after {
+    content: '−';
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.faq-answer p {
+    padding: 15px;
+    font-size: 14px;
+    color: #dcdcdc;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .profile h2 {
+        font-size: 20px;
+    }
+
+    .link-item {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .faq-question {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
