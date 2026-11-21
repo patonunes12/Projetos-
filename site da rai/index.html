@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Lingerie | Vitrine</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sua Marca Lingerie</h1>
+        <p>Conforto, elegância e sensualidade em cada detalhe</p>
+    </header>
+
+    <main class="container">
+        <h2>Destaques da Coleção</h2>
+        
+        <div class="carrossel-wrapper">
+            <button class="seta seta-esquerda" onclick="rolarCarrossel(-1)">❮</button>
+            
+            <div class="carrossel" id="vitrine">
+                
+                <div class="card-produto">
+                    <img src="img/images.jpg" alt="Conjunto Renda Preto">
+                    <h3>Conjunto Renda Noir</h3>
+                    <p class="preco">R$ 89,90</p>
+                    <p class="parcela">ou 3x de R$ 29,96 sem juros</p>
+                    <a href="https://wa.me/5511994677229" target="_blank" class="btn-comprar">
+                        Comprar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="card-produto">
+                    <img src="img/images.jpg" alt="Body Rendado">
+                    <h3>Body Luxo Bordô</h3>
+                    <p class="preco">R$ 119,90</p>
+                    <p class="parcela">ou 3x de R$ 39,96 sem juros</p>
+                    <a href="https://wa.me/5511994677229" target="_blank" class="btn-comprar">
+                        Comprar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="card-produto">
+                    <img src="img/images.jpg" alt="Sutiã Strappy">
+                    <h3>Conjunto Strappy Rosé</h3>
+                    <p class="preco">R$ 79,90</p>
+                    <p class="parcela">ou 2x de R$ 39,95 sem juros</p>
+                    <a href="https://wa.me/5511994677229" target="_blank" class="btn-comprar">
+                        Comprar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="card-produto">
+                    <img src="img/images.jpg" alt="Camisola Cetim">
+                    <h3>Camisola Cetim Champagne</h3>
+                    <p class="preco">R$ 99,90</p>
+                    <p class="parcela">ou 3x de R$ 33,30 sem juros</p>
+                    <a href="https://wa.me/5511994677229" target="_blank" class="btn-comprar">
+                        Comprar no WhatsApp
+                    </a>
+                </div>
+
+                <div class="card-produto">
+                    <img src="img/images.jpg" alt="Conjunto Branco">
+                    <h3>Conjunto Noiva Branco</h3>
+                    <p class="preco">R$ 94,90</p>
+                    <p class="parcela">ou 3x de R$ 31,63 sem juros</p>
+                    <a href="https://wa.me/5511994677229" target="_blank" class="btn-comprar">
+                        Comprar no WhatsApp
+                    </a>
+                </div>
+
+            </div>
+
+            <button class="seta seta-direita" onclick="rolarCarrossel(1)">❯</button>
+        </div>
+    </main>
+
+    <a href="https://wa.me/5511994677229" target="_blank" class="whatsapp-flutuante">
+        Falar no WhatsApp
+    </a>
+
+    <script>
+        const vitrine = document.getElementById('vitrine');
+        const cardsOriginais = Array.from(vitrine.children);
+        
+        cardsOriginais.forEach(card => {
+            const cloneFinal = card.cloneNode(true);
+            vitrine.appendChild(cloneFinal);
+        });
+
+        let bloqueado = false;
+
+        function rolarCarrossel(direcao) {
+            if (bloqueado) return;
+            bloqueado = true;
+
+            const card = vitrine.querySelector('.card-produto');
+            const distancia = card.offsetWidth + 20;
+            const metadeLargura = vitrine.scrollWidth / 2;
+
+            if (direcao === -1 && vitrine.scrollLeft <= 5) {
+                vitrine.style.scrollBehavior = 'auto';
+                vitrine.style.scrollSnapType = 'none';
+                vitrine.scrollLeft = metadeLargura;
+            }
+
+            requestAnimationFrame(() => {
+                vitrine.style.scrollBehavior = 'smooth';
+                vitrine.scrollBy({ left: direcao * distancia });
+
+                setTimeout(() => {
+                    vitrine.style.scrollBehavior = 'auto';
+                    if (vitrine.scrollLeft >= metadeLargura) {
+                        vitrine.scrollLeft -= metadeLargura;
+                    }
+                    vitrine.style.scrollSnapType = 'x mandatory';
+                    bloqueado = false;
+                }, 400);
+            });
+        }
+
+        vitrine.addEventListener('scroll', () => {
+            if (bloqueado) return;
+            const metadeLargura = vitrine.scrollWidth / 2;
+            if (vitrine.scrollLeft >= metadeLargura) {
+                vitrine.style.scrollBehavior = 'auto';
+                vitrine.scrollLeft -= metadeLargura;
+            }
+        });
+    </script>
+
+</body>
+</html>

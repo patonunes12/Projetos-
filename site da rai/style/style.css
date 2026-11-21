@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdf8f9;
+    color: #333;
+}
+
+header {
+    background-color: #881337;
+    color: #fff;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #881337;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.carrossel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carrossel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px 5px;
+    scrollbar-width: none;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.card-produto {
+    min-width: 260px;
+    max-width: 260px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+}
+
+.card-produto img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.card-produto h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.preco {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #881337;
+}
+
+.parcela {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    display: block;
+    background-color: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+    margin-top: auto;
+}
+
+.btn-comprar:hover {
+    background-color: #1ebe5d;
+}
+
+.seta {
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(136, 19, 55, 0.9);
+    color: white;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+}
+
+.seta:hover {
+    background-color: #590a22;
+}
+
+.seta-esquerda {
+    left: -15px;
+}
+
+.seta-direita {
+    right: -15px;
+}
+
+.whatsapp-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+}
+
+.whatsapp-flutuante:hover {
+    background-color: #1ebe5d;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 25px 15px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        margin: 25px auto;
+        padding: 0 12px;
+    }
+
+    .container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .carrossel {
+        scroll-snap-type: x mandatory;
+        padding: 10px 0;
+    }
+
+    .card-produto {
+        min-width: 82vw;
+        max-width: 82vw;
+        scroll-snap-align: center;
+    }
+
+    .card-produto img {
+        height: 250px;
+    }
+
+    .seta {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .seta-esquerda {
+        left: 2px;
+    }
+
+    .seta-direita {
+        right: 2px;
+    }
+
+    .whatsapp-flutuante {
+        bottom: 15px;
+        right: 15px;
+        padding: 11px 16px;
+        font-size: 0.85rem;
+    }
+}
